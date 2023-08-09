@@ -11,8 +11,6 @@ public class Customer {
     private String id;
     @Column(name = "Name")
     private String name;
-
-
     @Column(name = "Address")
     private String address;
 
