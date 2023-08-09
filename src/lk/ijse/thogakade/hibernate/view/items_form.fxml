@@ -1,14 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="lk.ijse.thogakade.hibernate.controller.ItemsFormController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thogakade.hibernate.controller.ItemsFormController">
+   <children>
+      <TextField fx:id="txtItemCode" layoutX="139.0" layoutY="82.0" prefHeight="26.0" prefWidth="345.0" style="-fx-background-color: white; -fx-border-color: #51b3d3; -fx-border-radius: 6;" />
+      <TextField fx:id="txtItemDes" layoutX="139.0" layoutY="120.0" prefHeight="26.0" prefWidth="345.0" style="-fx-background-color: white; -fx-border-color: #51b3d3; -fx-border-radius: 6;" />
+      <TextField fx:id="txtItemUnit" layoutX="139.0" layoutY="157.0" prefHeight="26.0" prefWidth="345.0" style="-fx-background-color: white; -fx-border-color: #51b3d3; -fx-border-radius: 6;" />
+      <TextField fx:id="txtQty" layoutX="139.0" layoutY="195.0" prefHeight="26.0" prefWidth="345.0" style="-fx-background-color: white; -fx-border-color: #51b3d3; -fx-border-radius: 6;" />
+      <Label layoutX="40.0" layoutY="91.0" text="Item Code :" />
+      <Label layoutX="40.0" layoutY="126.0" text="Item Description :" />
+      <Label layoutX="40.0" layoutY="165.0" text="Unit Price :" />
+      <Label layoutX="40.0" layoutY="200.0" text="Qty.on.Handm :" />
+      <Label layoutX="222.0" layoutY="17.0" text="Manage Items" textFill="#51b3d3">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tblItems" layoutX="23.0" layoutY="286.0" prefHeight="200.0" prefWidth="538.0">
+        <columns>
+          <TableColumn fx:id="colCode" prefWidth="115.0" text="Item Code" />
+          <TableColumn fx:id="colDes" prefWidth="189.0" text="Item Description" />
+            <TableColumn fx:id="colPrice" prefWidth="112.0" text="Unit Price" />
+            <TableColumn fx:id="colQty" prefWidth="121.0" text="Qty.on.Hand" />
+        </columns>
+      </TableView>
+      <ImageView fx:id="imgHome" fitHeight="49.0" fitWidth="58.0" layoutX="66.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@assets/home-icon.png" />
+         </image>
+      </ImageView>
+      <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="98.0" layoutY="238.0" onAction="#btnSaveOnAction" style="-fx-background-color: #51b3d3;" text="Save" />
+      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="167.0" layoutY="239.0" onAction="#btnUpdateOnAction" style="-fx-background-color: #51b3d3;" text="Update" />
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="250.0" layoutY="240.0" onAction="#btnDeleteOnAction" style="-fx-background-color: #51b3d3;" text="Delete" />
+      <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="506.0" layoutY="79.0" onAction="#btnSearchOnAction" style="-fx-background-color: #51b3d3;" text="Search" />
+   </children>
 </AnchorPane>
