@@ -3,23 +3,23 @@ package lk.ijse.thogakade.hibernate.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "Customer")
 public class Customer {
     @Id
-    @Column(name = "ID")
+    @Column(name = "customer_id",length = 255)
     private String id;
-    @Column(name = "Name")
+    @Column(name = "customer_name")
     private String name;
-    @Column(name = "Address")
+    @Column(name = "customer_address")
     private String address;
 
     public Customer() {
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getId() {return id;}
 
     public String getName() {
         return name;
@@ -45,5 +45,14 @@ public class Customer {
         this.id = id;
         this.name = name;
         this.address = address;
+    }
+
+    @Override
+    public String toString() {
+        return "Customer{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
     }
 }

@@ -6,12 +6,13 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class CustomerRepository {
-    private final Session session;
+    private Session session;
     public CustomerRepository(){
-        session = SessionFactoryConfig.getInstance().getSession();
-
+        session = SessionFactoryConfig
+                .getInstance()
+                .getSession();
     }
-    public Customer getCustomer(int id){
+    public Customer getCustomer(String id){
         try {
             return session.get(Customer.class,id);
         }catch (Exception e){
@@ -20,18 +21,19 @@ public class CustomerRepository {
         }
     }
 
-    public int saveCustomer(Customer customer){
+    public String saveCustomer(Customer customer){
+//        session = SessionFactoryConfig.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            int customerId = (int) session.save(customer);
+            String id =(String) session.save(customer);
             transaction.commit();
             session.close();
-            return customerId;
+            return id;
         }catch (Exception e){
             transaction.rollback();
             session.close();
             e.printStackTrace();
-            return -1;
+            return "false";
         }
     }
     public boolean updateCustomer(Customer customer){

@@ -6,24 +6,25 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 public class SessionFactoryConfig {
-    private static SessionFactory sessionFactory;
-
     private static SessionFactoryConfig factoryConfig;
+    private final SessionFactory sessionFactory;
 
     /**
      * Defines default constructor as private
      * to avoid object creation of this class from outside
      */
-    private SessionFactoryConfig() {
+//    private SessionFactoryConfig() {
+//        // Creates the Session Factory
+//        sessionFactory = new Configuration()
+//                .configure()
+//                .addAnnotatedClass(Customer.class)
+//                .buildSessionFactory();
+//    }
 
-    }
-
-    static {
-        sessionFactory = new Configuration()
-                .configure()
-                .addAnnotatedClass(Customer.class)
-                .buildSessionFactory();
-
+    private SessionFactoryConfig(){
+        Configuration configuration = new Configuration().configure()
+                .addAnnotatedClass(Customer.class);
+        sessionFactory = configuration.buildSessionFactory();
     }
 
     /**
@@ -42,6 +43,7 @@ public class SessionFactoryConfig {
      * by following the steps of Native Bootstrapping
      */
     public Session getSession() {
+        // Opens a new Session and Returns
         return sessionFactory.openSession();
     }
 
