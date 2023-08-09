@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.orm.hibernate.controller.customerFormController">
+   <children>
+      <TextField layoutX="190.0" layoutY="46.0" />
+      <TextField layoutX="186.0" layoutY="92.0" />
+      <TextField layoutX="186.0" layoutY="131.0" />
+      <TableView layoutX="59.0" layoutY="186.0" prefHeight="200.0" prefWidth="488.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="C1" />
+          <TableColumn prefWidth="75.0" text="C2" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
