@@ -38,39 +38,39 @@ public class HomeFormController {
 
     @FXML
     void navigate(MouseEvent event) throws IOException {
-//        if (event.getSource() instanceof ImageView) {
-//            ImageView icon = (ImageView) event.getSource();
-//
-//            Parent root = null;
-//
-//            switch (icon.getId()) {
-//                case "imgCustomer":
-//                    root = FXMLLoader.load(this.getClass().getResource("/view/manage-customers-form.fxml"));
-//                    break;
-//                case "imgItem":
-//                    root = FXMLLoader.load(this.getClass().getResource("/view/manage-items-form.fxml"));
-//                    break;
-//                case "imgOrder":
-//                    root = FXMLLoader.load(this.getClass().getResource("/view/place-order-form.fxml"));
-//                    break;
-//                case "imgViewOrders":
-//                    root = null;
-//                    break;
-//            }
-//
-//            if (root != null) {
-//                Scene subScene = new Scene(root);
-//                Stage primaryStage = (Stage) this.root.getScene().getWindow();
-//                primaryStage.setScene(subScene);
-//                primaryStage.centerOnScreen();
-//
-//                TranslateTransition tt = new TranslateTransition(Duration.millis(350), subScene.getRoot());
-//                tt.setFromX(-subScene.getWidth());
-//                tt.setToX(0);
-//                tt.play();
-//
-//            }
-//        }
+        if (event.getSource() instanceof ImageView) {
+            ImageView icon = (ImageView) event.getSource();
+
+            Parent root = null;
+
+            switch (icon.getId()) {
+                case "imgCustomer":
+                    root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/thogakade/hibernate/view/customer_form.fxml"));
+                    break;
+                case "imgItem":
+                    root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/thogakade/hibernate/view/items_form.fxml"));
+                    break;
+                case "imgOrder":
+                    root = FXMLLoader.load(this.getClass().getResource("/view/place-order-form.fxml"));
+                    break;
+                case "imgViewOrders":
+                    root = null;
+                    break;
+            }
+
+            if (root != null) {
+                Scene subScene = new Scene(root);
+                Stage primaryStage = (Stage) this.root.getScene().getWindow();
+                primaryStage.setScene(subScene);
+                primaryStage.centerOnScreen();
+
+                TranslateTransition tt = new TranslateTransition(Duration.millis(350), subScene.getRoot());
+                tt.setFromX(-subScene.getWidth());
+                tt.setToX(0);
+                tt.play();
+
+            }
+        }
 
     }
 
