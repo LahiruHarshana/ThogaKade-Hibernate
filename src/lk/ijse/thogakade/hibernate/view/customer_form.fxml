@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.gdse.orm.hibernate.controller.customerFormController">
+<AnchorPane fx:id="root" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.thogakade.hibernate.controller.CustomerFormController">
    <children>
-      <TextField layoutX="190.0" layoutY="46.0" />
-      <TextField layoutX="186.0" layoutY="92.0" />
-      <TextField layoutX="186.0" layoutY="131.0" />
-      <TableView layoutX="59.0" layoutY="186.0" prefHeight="200.0" prefWidth="488.0">
+      <TextField fx:id="cstId" layoutX="188.0" layoutY="97.0" prefHeight="26.0" prefWidth="261.0" style="-fx-border-color: #51b3d3; -fx-border-radius: 6; -fx-background-color: white;" />
+      <TextField fx:id="cstName" layoutX="188.0" layoutY="138.0" prefHeight="26.0" prefWidth="261.0" style="-fx-border-color: #51b3d3; -fx-background-color: white; -fx-border-radius: 6;" />
+      <TextField fx:id="cstAd" layoutX="188.0" layoutY="181.0" prefHeight="26.0" prefWidth="261.0" style="-fx-border-color: #51b3d3; -fx-border-radius: 6; -fx-background-color: white;" />
+      <TableView fx:id="cstTbl" layoutX="59.0" layoutY="266.0" prefHeight="200.0" prefWidth="488.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="colId" prefWidth="166.0" text="Customer ID" />
+          <TableColumn fx:id="colName" prefWidth="159.0" text="Customer Name" />
+            <TableColumn fx:id="colAd" prefWidth="159.0" text="Customer Address" />
         </columns>
       </TableView>
+      <Label layoutX="225.0" layoutY="29.0" text="Customer Manage" textFill="#51b3d3">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <Label layoutX="70.0" layoutY="186.0" text="Customer Address :" />
+      <Label layoutX="70.0" layoutY="145.0" text="Customer Name :" />
+      <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="290.0" layoutY="225.0" onAction="#btnSaveOnAction" style="-fx-background-color: #51b3d3; -fx-background-radius: 6;" text="Save" textFill="WHITE" />
+      <JFXButton fx:id="btnUpdate" buttonType="RAISED" layoutX="352.0" layoutY="226.0" onAction="#btnUpdateOnAction" style="-fx-background-color: #51b3d3; -fx-background-radius: 6;" text="Update" textFill="WHITE" />
+      <Label layoutX="80.0" layoutY="105.0" text="Customer Id :" />
+      <JFXButton fx:id="btnSearch" buttonType="RAISED" layoutX="461.0" layoutY="98.0" onAction="#btnSearchOnAction" style="-fx-background-color: #51b3d3;" text="Search" textFill="WHITE" />
+      <JFXButton fx:id="btnDelete" buttonType="RAISED" layoutX="423.0" layoutY="226.0" onAction="#btnDeleteOnAction" style="-fx-background-color: #51b3d3;" text="Delete" textFill="WHITE" />
    </children>
 </AnchorPane>
