@@ -26,4 +26,58 @@ public class Item {
         this.price = price;
         this.qty = qty;
     }
+
+    public Item() {
+    }
+
+    public String getItemCode() {
+        return itemCode;
+    }
+
+    public void setItemCode(String itemCode) {
+        this.itemCode = itemCode;
+    }
+
+    public String getItemDescription() {
+        return ItemDescription;
+    }
+
+    public void setItemDescription(String itemDescription) {
+        ItemDescription = itemDescription;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Integer getQty() {
+        return qty;
+    }
+
+    public void setQty(Integer qty) {
+        this.qty = qty;
+    }
+
+    public List<Orders> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Orders> orders) {
+        this.orders = orders;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemCode='" + itemCode + '\'' +
+                ", ItemDescription='" + ItemDescription + '\'' +
+                ", price=" + price +
+                ", qty=" + qty +
+                ", orders=" + orders +
+                '}';
+    }
 }
