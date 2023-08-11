@@ -79,18 +79,26 @@ public class CustomerFormController {
     @FXML
     void btnSearchOnAction(ActionEvent event) {
         CustomerRepository customerRepository = new CustomerRepository();
-
-        Session session = SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction = session.beginTransaction();
-
-        Customer customer = customerRepository.getCustomer(cstId.getText());
-
-
-
+        customerRepository = new CustomerRepository();
+        Customer existingCustomer = customerRepository.getCustomer(cstId.getText());
+        cstId.setText(existingCustomer.getId());
+        cstName.setText(existingCustomer.getName());
+        cstAd.setText(existingCustomer.getAddress());
     }
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
+        CustomerRepository customerRepository = new CustomerRepository();
+        Customer existingCustomer = customerRepository.getCustomer(cstId.getText());
+        existingCustomer.setAddress(cstAd.getText());
+        existingCustomer.setName(cstName.getText());
+        existingCustomer.setId(cstId.getText());
+        boolean isUpdated = customerRepository.updateCustomer(existingCustomer);
+        if (isUpdated) {
+            System.out.println("Customer Updated!");
+        } else {
+            System.out.println("Customer Update Failed!");
+        }
 
     }
 }

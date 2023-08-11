@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lk.ijse.thogakade.hibernate.config.SessionFactoryConfig;
 
 import java.io.IOException;
 
@@ -26,5 +27,6 @@ public class AppInitializer extends Application {
         primaryStage.setTitle("Java FX POS");
         primaryStage.centerOnScreen();
         primaryStage.show();
+        //SessionFactoryConfig.getInstance().getSession();
     }
 }

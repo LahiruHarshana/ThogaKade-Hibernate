@@ -8,6 +8,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import lk.ijse.thogakade.hibernate.entity.Customer;
+import lk.ijse.thogakade.hibernate.entity.Item;
+import lk.ijse.thogakade.hibernate.repository.CustomerRepository;
+import lk.ijse.thogakade.hibernate.repository.ItemRepository;
 
 public class ItemsFormController {
 
@@ -63,6 +67,10 @@ public class ItemsFormController {
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {
+        Item item = new Item(txtItemCode.getText(),txtItemDes.getText(),Double.valueOf(txtItemUnit.getText()),Integer.parseInt(txtQty.getText()));
+        ItemRepository itemRepository = new ItemRepository();
+        String saveItemCode = itemRepository.saveItem(item);
+        System.out.println("Saved Cus Id: " + saveItemCode);
 
     }
 

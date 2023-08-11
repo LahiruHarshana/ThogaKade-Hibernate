@@ -3,17 +3,19 @@ package lk.ijse.thogakade.hibernate.entity;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "item")
 public class Item {
     @Id
-    @Column(name = "ItemCode")
+    @Column(name = "Item_Code" ,length = 255)
     private String itemCode;
-    @Column(name = "Description")
+    @Column(name = "Item_Description")
     private String description;
-    @Column(name = "Price")
+    @Column(name = "Item_Price")
     private double price;
-    @Column(name = "Qty")
+    @Column(name = "Item_Qty")
     private int qty;
 
     public Item() {
