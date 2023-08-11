@@ -60,11 +60,15 @@ public class CustomerFormController {
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
 
-        Session session= SessionFactoryConfig.getInstance().getSession();
-        Transaction trans = session.beginTransaction();
-
-        String id = (cstId.getText());
-        Customer customer = session.get(Customer.class,id);    }
+        CustomerRepository customerRepository = new CustomerRepository();
+        Customer existingCustomer = customerRepository.getCustomer(cstId.getText());
+        boolean isDeleted = customerRepository.deleteCustomer(existingCustomer);
+        if (isDeleted) {
+            System.out.println("Customer Deleted!");
+        } else {
+            System.out.println("Customer Deletion Failed!");
+        }
+    }
 
     @FXML
     void btnSaveOnAction(ActionEvent event) {

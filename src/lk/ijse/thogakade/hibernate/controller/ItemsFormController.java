@@ -62,6 +62,14 @@ public class ItemsFormController {
 
     @FXML
     void btnDeleteOnAction(ActionEvent event) {
+        ItemRepository itemRepository = new ItemRepository();
+        Item existingCustomer = itemRepository.getItem(txtItemCode.getText());
+        boolean isDeleted = itemRepository.deleteItem(existingCustomer);
+        if (isDeleted) {
+            System.out.println("Customer Deleted!");
+        } else {
+            System.out.println("Customer Deletion Failed!");
+        }
 
     }
 
@@ -76,6 +84,13 @@ public class ItemsFormController {
 
     @FXML
     void btnSearchOnAction(ActionEvent event) {
+        ItemRepository itemRepository = new ItemRepository();
+        itemRepository = new ItemRepository();
+        Item existingCustomer = itemRepository.getItem(txtItemCode.getText());
+        txtItemCode.setText(existingCustomer.getItemCode());
+        txtItemDes.setText(existingCustomer.getDescription());
+        txtItemUnit.setText(String.valueOf(existingCustomer.getPrice()));
+        txtQty.setText(String.valueOf(existingCustomer.getQty()));
 
     }
 
