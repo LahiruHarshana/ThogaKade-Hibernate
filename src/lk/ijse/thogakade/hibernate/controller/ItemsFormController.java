@@ -88,7 +88,7 @@ public class ItemsFormController {
         itemRepository = new ItemRepository();
         Item existingCustomer = itemRepository.getItem(txtItemCode.getText());
         txtItemCode.setText(existingCustomer.getItemCode());
-        txtItemDes.setText(existingCustomer.getDescription());
+        txtItemDes.setText(existingCustomer.getItemDescription());
         txtItemUnit.setText(String.valueOf(existingCustomer.getPrice()));
         txtQty.setText(String.valueOf(existingCustomer.getQty()));
 
@@ -98,7 +98,7 @@ public class ItemsFormController {
     void btnUpdateOnAction(ActionEvent event){
         ItemRepository itemRepository = new ItemRepository();
         Item existingCustomer = itemRepository.getItem(txtItemCode.getText());
-        existingCustomer.setDescription(txtItemDes.getText());
+        existingCustomer.setItemDescription(txtItemDes.getText());
         existingCustomer.setItemCode(txtItemCode.getText());
         existingCustomer.setPrice(Double.parseDouble(txtItemUnit.getText()));
         existingCustomer.setQty(Integer.parseInt(txtQty.getText()));

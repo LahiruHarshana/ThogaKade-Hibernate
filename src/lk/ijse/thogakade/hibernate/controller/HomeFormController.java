@@ -51,7 +51,7 @@ public class HomeFormController {
                     root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/thogakade/hibernate/view/items_form.fxml"));
                     break;
                 case "imgOrder":
-                    root = FXMLLoader.load(this.getClass().getResource("/view/place-order-form.fxml"));
+                    root = FXMLLoader.load(this.getClass().getResource("/lk/ijse/thogakade/hibernate/view/place-order-form.fxml"));
                     break;
                 case "imgViewOrders":
                     root = null;
