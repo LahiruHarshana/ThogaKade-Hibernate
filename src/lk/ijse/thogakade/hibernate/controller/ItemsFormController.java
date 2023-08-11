@@ -96,6 +96,18 @@ public class ItemsFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event){
+        ItemRepository itemRepository = new ItemRepository();
+        Item existingCustomer = itemRepository.getItem(txtItemCode.getText());
+        existingCustomer.setDescription(txtItemDes.getText());
+        existingCustomer.setItemCode(txtItemCode.getText());
+        existingCustomer.setPrice(Double.parseDouble(txtItemUnit.getText()));
+        existingCustomer.setQty(Integer.parseInt(txtQty.getText()));
+        boolean isUpdated = itemRepository.updateItem(existingCustomer);
+        if (isUpdated) {
+            System.out.println("Customer Updated!");
+        } else {
+            System.out.println("Customer Update Failed!");
+        }
 
     }
 
