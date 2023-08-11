@@ -1,63 +1,29 @@
 package lk.ijse.thogakade.hibernate.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
-@Table(name = "item")
+@Table(schema = "item")
 public class Item {
     @Id
-    @Column(name = "Item_Code" ,length = 255)
-    private String itemCode;
-    @Column(name = "Item_Description")
-    private String description;
-    @Column(name = "Item_Price")
-    private double price;
-    @Column(name = "Item_Qty")
-    private int qty;
+    @Column(name = "code",length = 30)
+    String itemCode;
+    @Column(name = "Item_description",nullable = false)
+    String ItemDescription;
+    @Column(name = "ItemPrice",nullable = false)
+    Double price;
+    @Column(name = "ItemQty",nullable = false)
+    Integer qty;
 
-    public Item() {
-    }
+    @ManyToMany(mappedBy = "items")
+    List<Orders> orders = new ArrayList<>();
 
-    public Item(String itemCode, String description, double price, int qty) {
-
+    public Item(String itemCode, String itemDescription, Double price, Integer qty) {
         this.itemCode = itemCode;
-        this.description = description;
+        this.ItemDescription = itemDescription;
         this.price = price;
-        this.qty = qty;
-    }
-
-    public String getItemCode() {
-        return itemCode;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public int getQty() {
-        return qty;
-    }
-
-    public void setItemCode(String itemCode) {
-        this.itemCode = itemCode;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    public void setQty(int qty) {
         this.qty = qty;
     }
 }

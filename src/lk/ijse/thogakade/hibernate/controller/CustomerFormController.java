@@ -1,22 +1,31 @@
 package lk.ijse.thogakade.hibernate.controller;
 
 import com.jfoenix.controls.JFXButton;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import lk.ijse.thogakade.hibernate.config.SessionFactoryConfig;
 import lk.ijse.thogakade.hibernate.entity.Customer;
 import lk.ijse.thogakade.hibernate.repository.CustomerRepository;
+import lk.ijse.thogakade.hibernate.view.TM.CustomerTM;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.net.URL;
+import java.sql.SQLException;
 import java.util.List;
+import java.util.ResourceBundle;
 
-public class CustomerFormController {
+public class CustomerFormController implements Initializable {
 
     @FXML
     private JFXButton btnDelete;
@@ -49,7 +58,7 @@ public class CustomerFormController {
     private TextField cstName;
 
     @FXML
-    private TableView<Customer> cstTbl;
+    private TableView<CustomerTM> cstTbl;
 
     @FXML
     private ImageView imgHome;
@@ -76,6 +85,7 @@ public class CustomerFormController {
         CustomerRepository cusRepository = new CustomerRepository();
         String savedCusId = cusRepository.saveCustomer(customer);
         System.out.println("Saved Cus Id: " + savedCusId);
+        LoadTable();
 
     }
 
@@ -104,5 +114,37 @@ public class CustomerFormController {
             System.out.println("Customer Update Failed!");
         }
 
+    }
+
+    void LoadTable(){
+        try {
+            CustomerRepository customerRepository = new CustomerRepository();
+            ObservableList<CustomerTM> obList = FXCollections.observableArrayList();
+            List<Customer> cusList = customerRepository.getAll();
+
+            for (Customer customer : cusList) {
+                obList.add(new CustomerTM(
+                        customer.getId(),
+                        customer.getName(),
+                        customer.getAddress()
+                ));
+            }
+            cstTbl.setItems(obList);
+        } catch (Exception e) {
+            e.printStackTrace();
+            new Alert(Alert.AlertType.ERROR, "SQL Error!").show();
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        LoadTable();
+        setCellValueFactory();
+    }
+
+    private void setCellValueFactory() {
+        colId.setCellValueFactory(new PropertyValueFactory<>("id"));
+        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
+        colAd.setCellValueFactory(new PropertyValueFactory<>("address"));
     }
 }
