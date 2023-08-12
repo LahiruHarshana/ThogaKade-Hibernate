@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Customer")
+@Table(name ="Customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
-    private String id;
+    private int id;
     @Column(name = "customer_name")
     private String name;
     @Column(name = "customer_address")
@@ -19,7 +19,7 @@ public class Customer {
     @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "customer")
     private List<Orders> orders = new ArrayList<>();
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
