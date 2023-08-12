@@ -3,8 +3,10 @@ package lk.ijse.thogakade.hibernate.embeded;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
+import javax.persistence.Table;
 
 @Embeddable
+@Table(name = "order_detail")
 public class OrderDetailPK {
     @EmbeddedId
     private OrderDetailPK orderDetailPK;
