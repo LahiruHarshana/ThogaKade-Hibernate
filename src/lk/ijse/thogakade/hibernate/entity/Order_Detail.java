@@ -21,6 +21,9 @@ public class Order_Detail {
                 updatable = false)
     private Orders orders;
 
+    @ManyToOne
+    @JoinColumn(name="item_id",
+    insertable = false,updatable = false)
     private Item item;
 
 
