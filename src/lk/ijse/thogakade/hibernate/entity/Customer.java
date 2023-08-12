@@ -1,5 +1,7 @@
 package lk.ijse.thogakade.hibernate.entity;
 
+import org.hibernate.type.descriptor.sql.TinyIntTypeDescriptor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
