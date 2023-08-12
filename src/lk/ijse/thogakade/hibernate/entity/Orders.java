@@ -21,8 +21,11 @@ public class Orders {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private List<Item> items = new ArrayList<>();
+//    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    private List<Item> items = new ArrayList<>();
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private List<Order_Detail>orderDetails = new ArrayList<>();
 
     public Orders() {
     }
