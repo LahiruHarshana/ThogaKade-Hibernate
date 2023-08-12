@@ -18,8 +18,11 @@ public class Item {
     private int qty;
     @Column(name="unit_price")
     private double unitPrice;
-    @ManyToMany(mappedBy ="items")
-    private List<Orders> orders = new ArrayList<>();
+    //    @ManyToMany(mappedBy ="items")
+    //    private List<Orders> orders = new ArrayList<>();
+
+    @OneToMany
+    private List<Order_Detail> orderDetails = new ArrayList<>();
 
 
     public Item() {
