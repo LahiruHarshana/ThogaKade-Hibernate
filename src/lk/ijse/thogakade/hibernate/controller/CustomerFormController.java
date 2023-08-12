@@ -77,6 +77,7 @@ public class CustomerFormController implements Initializable {
         } else {
             System.out.println("Customer Deletion Failed!");
         }
+        LoadTable();
     }
 
     @FXML
@@ -113,6 +114,7 @@ public class CustomerFormController implements Initializable {
         } else {
             System.out.println("Customer Update Failed!");
         }
+        LoadTable();
 
     }
 
