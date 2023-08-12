@@ -21,7 +21,7 @@ public class Orders {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
-
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Item> items = new ArrayList<>();
 
     public Orders() {
