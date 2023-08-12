@@ -19,6 +19,8 @@ public class Orders {
     @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
+
+    private
     public Orders() {
     }
 
