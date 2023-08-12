@@ -16,7 +16,9 @@ public class Order_Detail {
 
     @ManyToOne
     @JoinColumn(name = "order_id",
-                referencedColumnName = "order_id")
+                referencedColumnName = "order_id",
+                insertable = false,
+                updatable = false)
     private Orders orders;
 
     private Item item;
