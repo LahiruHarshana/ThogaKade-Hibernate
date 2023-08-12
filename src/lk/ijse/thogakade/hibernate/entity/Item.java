@@ -18,7 +18,7 @@ public class Item {
     private int qty;
     @Column(name="unit_price")
     private double unitPrice;
-    @ManyToMany
+    @ManyToMany(mappedBy ="items")
     private List<Orders> orders = new ArrayList<>();
 
 
