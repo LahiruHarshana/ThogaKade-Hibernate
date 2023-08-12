@@ -4,6 +4,7 @@ import javafx.animation.ScaleTransition;
 import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -14,10 +15,13 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.ijse.thogakade.hibernate.config.SessionFactoryConfig;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class HomeFormController {
+public class HomeFormController implements Initializable {
     @FXML
     private ImageView imgCustomer;
 
@@ -127,5 +131,10 @@ public class HomeFormController {
             lblDescription.setText("Please select one of above main operations to proceed");
         }
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        SessionFactoryConfig.getInstance().getSession();
     }
 }

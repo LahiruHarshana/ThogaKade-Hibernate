@@ -1,68 +1,64 @@
 package lk.ijse.thogakade.hibernate.entity;
 
-import javax.persistence.*;
-import java.sql.Date;
-import java.util.ArrayList;
-import java.util.List;
+import org.hibernate.annotations.CreationTimestamp;
 
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
-@Table(schema = "orders")
+@Table(name = "Orders")
 public class Orders {
-
     @Id
-    @Column(name = "orders_id",length = 30)
-    String id;
-    @Column(name = "order_date",nullable = false)
-    Date date;
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "order_detail",
-            joinColumns = @JoinColumn(name = "orders_id"),
-            inverseJoinColumns = @JoinColumn(name = "code")
-    )
-    List<Item> items;
-
+    @Column(name = "order_id")
+    private String id;
+    @Column(name = "order_description")
+    private String desc;
+    @CreationTimestamp
+    @Column(name = "order_date")
+    private Timestamp orderDateTime;
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
+    private Customer customer;
     public Orders() {
-    }
-
-    public Orders(String id, Date date, List<Item> items) {
-        this.id = id;
-        this.date = date;
-        this.items = items;
     }
 
     public String getId() {
         return id;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public List<Item> getItems() {
-        return items;
-    }
-
     public void setId(String id) {
         this.id = id;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setItems(List<Item> items) {
-        this.items = items;
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public Timestamp getOrderDateTime() {
+        return orderDateTime;
+    }
+
+    public void setOrderDateTime(Timestamp orderDateTime) {
+        this.orderDateTime = orderDateTime;
     }
 
     @Override
     public String toString() {
-        return "Orders{" +
+        return "Order{" +
                 "id='" + id + '\'' +
-                ", date=" + date +
-                ", items=" + items +
+                ", desc='" + desc + '\'' +
+                ", orderDateTime=" + orderDateTime +
                 '}';
     }
+
+    public Orders(String id, String desc, Timestamp orderDateTime) {
+        this.id = id;
+        this.desc = desc;
+        this.orderDateTime = orderDateTime;
+    }
+
 }
