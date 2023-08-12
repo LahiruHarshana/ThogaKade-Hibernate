@@ -18,7 +18,7 @@ public class Order {
     @Column(name = "order_date")
     private Timestamp orderDateTime;
 
-
+    private Customer customer;
     public Order() {
     }
 
