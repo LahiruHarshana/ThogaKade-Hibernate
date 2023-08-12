@@ -23,7 +23,7 @@ public class Customer {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -46,7 +46,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String id, String name, String address) {
+    public Customer(int id, String name, String address) {
         this.id = id;
         this.name = name;
         this.address = address;
