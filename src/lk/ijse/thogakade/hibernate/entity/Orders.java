@@ -4,6 +4,8 @@ import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Orders")
@@ -20,7 +22,8 @@ public class Orders {
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
-    private
+    private List<Item> items = new ArrayList<>();
+
     public Orders() {
     }
 
