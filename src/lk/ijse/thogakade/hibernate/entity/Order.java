@@ -2,11 +2,9 @@ package lk.ijse.thogakade.hibernate.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "`Order`")
@@ -19,6 +17,7 @@ public class Order {
     @CreationTimestamp
     @Column(name = "order_date")
     private Timestamp orderDateTime;
+
 
     public Order() {
     }
