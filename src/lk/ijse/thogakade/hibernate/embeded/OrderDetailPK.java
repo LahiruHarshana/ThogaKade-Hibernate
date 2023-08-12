@@ -8,8 +8,6 @@ import javax.persistence.Table;
 @Embeddable
 @Table(name = "order_detail")
 public class OrderDetailPK {
-    @EmbeddedId
-    private OrderDetailPK orderDetailPK;
     @Column(name = "order_id")
     private int orderId;
     @Column(name = "item_id")
