@@ -2,10 +2,7 @@ package lk.ijse.thogakade.hibernate.entity;
 
 import lk.ijse.thogakade.hibernate.embeded.OrderDetailPK;
 
-import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "order_details")
@@ -16,6 +13,14 @@ public class Order_Detail {
     private int qty;
     @Column(name = "order_price")
     private double price;
+
+    @ManyToOne
+    @JoinColumn(name = "order_id",
+                referencedColumnName = "order_id")
+    private Orders orders;
+
+    private Item item;
+
 
 
 }
