@@ -1,20 +1,20 @@
 package lk.ijse.thogakade.hibernate.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "Customer")
 public class Customer {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     private String id;
     @Column(name = "customer_name")
     private String name;
     @Column(name = "customer_address")
     private String address;
+
+
 
     public String getId() {
         return id;
@@ -57,4 +57,5 @@ public class Customer {
                 ", address='" + address + '\'' +
                 '}';
     }
+
 }
