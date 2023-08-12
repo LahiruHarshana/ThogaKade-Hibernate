@@ -16,7 +16,7 @@ public class Customer {
     @Column(name = "customer_address")
     private String address;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private List<Order> orders = new ArrayList<>();
 
     public String getId() {
