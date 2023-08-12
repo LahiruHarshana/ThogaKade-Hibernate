@@ -17,7 +17,8 @@ public class Order {
     @CreationTimestamp
     @Column(name = "order_date")
     private Timestamp orderDateTime;
-
+    @ManyToOne
+    @JoinColumn(name = "customer_id")
     private Customer customer;
     public Order() {
     }
