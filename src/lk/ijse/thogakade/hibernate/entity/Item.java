@@ -1,6 +1,8 @@
 package lk.ijse.thogakade.hibernate.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Item")
@@ -16,6 +18,9 @@ public class Item {
     private int qty;
     @Column(name="unit_price")
     private double unitPrice;
+    @ManyToMany
+    private List<Orders> orders = new ArrayList<>();
+
 
     public Item() {
     }
