@@ -1,6 +1,8 @@
 package lk.ijse.thogakade.hibernate.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "Customer")
@@ -14,7 +16,8 @@ public class Customer {
     @Column(name = "customer_address")
     private String address;
 
-
+    @OneToMany
+    private List<Order> orders = new ArrayList<>();
 
     public String getId() {
         return id;
