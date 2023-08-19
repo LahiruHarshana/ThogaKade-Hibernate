@@ -14,11 +14,14 @@ public class PersistentState {
         //persistence
         int custId = (int)session.save(customer);
 
+        System.out.println(isExistsInSession(session,customer));
 
-        System.out.println(session.contains(customer));
+        session.close();
     }
 
-    private String isExistsInSession(Session session ,Customer customer){
+    private static String isExistsInSession(Session session, Customer customer){
         return session.contains(customer)?"This object is not transient" : "This object is transient";
     }
+
+
 }

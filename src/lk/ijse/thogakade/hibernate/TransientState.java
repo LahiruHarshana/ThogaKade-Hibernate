@@ -13,11 +13,11 @@ public class TransientState {
         customer.setName("Saman");
         customer.setAddress("Galle");
 
-        System.out.println(session.contains(customer));
+        System.out.println(isExistsInSession(session,customer));
 
     }
 
-    private String isExistsInSession(Session session ,Customer customer){
+    private static String isExistsInSession(Session session, Customer customer){
        return session.contains(customer)?"This object is not transient" : "This object is transient";
     }
 
