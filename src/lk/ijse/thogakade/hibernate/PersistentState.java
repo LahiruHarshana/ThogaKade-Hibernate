@@ -20,8 +20,9 @@ public class PersistentState {
     }
 
     private static String isExistsInSession(Session session, Customer customer){
-        return session.contains(customer)?"This object is not transient" : "This object is transient";
-    }
+        return session.contains(customer)
+                ? "This Object is in Persistent State"
+                : "This object is in Transient State";    }
 
 
 }
