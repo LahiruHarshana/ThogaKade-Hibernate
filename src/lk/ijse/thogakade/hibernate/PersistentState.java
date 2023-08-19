@@ -17,4 +17,8 @@ public class PersistentState {
 
         System.out.println(session.contains(customer));
     }
+
+    private String isExistsInSession(Session session ,Customer customer){
+        return session.contains(customer)?"This object is not transient" : "This object is transient";
+    }
 }
