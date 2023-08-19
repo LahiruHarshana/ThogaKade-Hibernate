@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "Orders")
+@Table(name = "orders")
 public class Orders {
     @Id
     @Column(name = "order_id")
@@ -24,7 +24,7 @@ public class Orders {
 //    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 //    private List<Item> items = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,mappedBy = "orders")
     private List<Order_Detail>orderDetails = new ArrayList<>();
 
     public Orders() {

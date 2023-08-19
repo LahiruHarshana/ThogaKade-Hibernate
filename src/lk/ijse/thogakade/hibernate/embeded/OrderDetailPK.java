@@ -4,10 +4,11 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Table;
+import java.io.Serializable;
 
 @Embeddable
 @Table(name = "order_detail")
-public class OrderDetailPK {
+public class OrderDetailPK implements Serializable {
     @Column(name = "order_id")
     private int orderId;
     @Column(name = "item_id")
