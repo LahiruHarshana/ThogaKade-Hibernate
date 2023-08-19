@@ -18,7 +18,9 @@ public class TransientState {
     }
 
     private String isExistsInSession(Session session ,Customer customer){
-       return session.contains(customer)?"Customer mapped with a session " : "Customer not mapped with session";
+       return session.contains(customer)?"This object is not transient" : "This object is transient";
     }
+
+
 
 }
