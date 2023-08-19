@@ -10,6 +10,15 @@ public class GetVsLoad {
                 .getInstance().getSession();
         int cusId = (int) session.save(getCustomer());
         session.close();
+
+        // 1. Get
+        Session session2 = SessionFactoryConfig
+                .getInstance().getSession();
+        System.out.println("------------Get--------------");
+        Customer get = session2.get(Customer.class, 2);
+        System.out.println("Customer Id of Get: " +get.getId());
+        System.out.println("Customer Name of Get: " +get.getName());
+        session2.close();
     }
 
     private static Customer getCustomer() {
