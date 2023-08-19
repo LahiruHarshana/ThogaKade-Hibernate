@@ -11,6 +11,9 @@ public class PersistentState {
         Customer customer = new Customer();
         customer.setName("Saman");
         customer.setAddress("Galle");
+        //persistence
+        int custId = (int)session.save(customer);
+
 
         System.out.println(session.contains(customer));
     }
